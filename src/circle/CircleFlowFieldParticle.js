@@ -1,5 +1,3 @@
-const p5 = require("p5");
-
 function CircleFlowFieldParticle() {
   let noiseFloat;
   this.size = 1600;
@@ -16,10 +14,10 @@ function CircleFlowFieldParticle() {
   this.lifeTime = int(random(100, 500));
   this.age = 0;
   this.dead = false;
-  this.hue = floor(random(40, 120));
+  this.hue = floor(random(20, 130));
 
   this.update = function () {
-    noiseFloat = noise(this.pos.x * 0.002, this.pos.y * 0.002); //smoothier, smaller
+    noiseFloat = noise(this.pos.x * 0.003, this.pos.y * 0.003); //smoothier, smaller
     this.acc.x = cos(noiseFloat * TWO_PI * 2); //smoothier, smaller
     this.acc.y = sin(noiseFloat * TWO_PI * 2);
     this.vel.add(this.acc);
@@ -33,8 +31,8 @@ function CircleFlowFieldParticle() {
     colorMode(HSB, 360, 100, 100);
     let lifeRatio = this.age / this.lifeTime;
     // let hue = floor(random(50, 80));
-    let sat = map(this.acc.x, -1, 1, 30, 90);
-    let bright = map(this.acc.y, -1, 1, 20, 90);
+    let sat = map(this.acc.x, -1, 1, 30, 100);
+    let bright = map(this.acc.y, -1, 1, 30, 100);
 
     noFill();
     stroke(this.hue, sat, bright, (1 - lifeRatio) * 255);

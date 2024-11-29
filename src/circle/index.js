@@ -1,6 +1,6 @@
 const canvasSketch = require("canvas-sketch");
 const palettes = require("nice-color-palettes/1000.json");
-import CircleFlowFieldParticle from "./circleFlowFieldParticle.js";
+import CircleFlowFieldParticle from "./CircleFlowFieldParticle.js";
 let palette;
 
 // Grab P5.js from npm
@@ -34,7 +34,7 @@ const sketch = ({ width, height }) => {
   // ...
   background(0);
 
-  for (let i = 0; i < 3000; i++) {
+  for (let i = 0; i < 4000; i++) {
     particles[i] = new CircleFlowFieldParticle();
   }
 
